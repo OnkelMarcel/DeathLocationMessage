@@ -1,0 +1,6 @@
+name: DeathLocationMessage
+version: 0.1
+author: Snowcase
+description: Shows location on death
+
+main: de.snowcase.deathlocation.DeathLocationMain
