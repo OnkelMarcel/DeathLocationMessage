@@ -8,13 +8,8 @@ import de.snowcase.deathlocation.events.DeathLocationEvent;
 public class DeathLocationMain extends JavaPlugin {
 	
 	public void onEnable() {
-		loadCommands();
 		loadConfig();
 		registerEvents(getServer().getPluginManager());
-	}
-	
-	public void loadCommands() {
-		
 	}
 	
 	public void registerEvents(PluginManager pm) {
