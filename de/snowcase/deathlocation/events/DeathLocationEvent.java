@@ -11,6 +11,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class DeathLocationEvent implements Listener {
 	
+	// only needed in this Class so both is private
 	private File file = new File("plugins/DeathLocationMessage/config.yml");
 	private FileConfiguration fc = YamlConfiguration.loadConfiguration(file);
 	
@@ -18,10 +19,14 @@ public class DeathLocationEvent implements Listener {
 	public void onPlayerDeath(PlayerDeathEvent event) {
 		Location loc = event.getEntity().getLocation();
 		
-		String message = fc.getString("location.message").replace("%x", String.valueOf(loc.getBlockX()))
-				.replace("%y", String.valueOf(loc.getBlockY())).replace("%z", String.valueOf(loc.getBlockZ()))
-				.replace("%name", event.getEntity().getDisplayName());
-		event.setDeathMessage(message);
+		String message = fc.getString("location.message");
+		
+		String xReplaced = message.replace("%x", String.valueOf(loc.getBlockX()));
+		String yReplaced = xReplaced..replace("%y", String.valueOf(loc.getBlockY()));
+		String zReplaced = yReplaced..replace("%z", String.valueOf(loc.getBlockZ()));
+		String playerNameReplaced = zReplaced.replace("%name", event.getEntity().getDisplayName());
+		
+		event.setDeathMessage(playerNameReplaced);
 		
 	}
 
